@@ -66,7 +66,7 @@ public class AuthServiceTest {
         LoginModel model = new LoginModel("sadfasdf", "waef");
         WebTarget target = ClientBuilder.newClient().target("http://localhost:" + port + "/api/auth/simple");
         Entity<LoginModel> entity = Entity.entity(model, MediaType.APPLICATION_JSON);
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 20; i++) {
             Response response = target.request(MediaType.APPLICATION_JSON)
                     .accept(MediaType.APPLICATION_JSON)
                     .post(entity, Response.class);
