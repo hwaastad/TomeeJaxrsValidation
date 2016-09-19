@@ -31,10 +31,11 @@ import org.waastad.tomeejaxrsvalidation.model.LoginModel;
  */
 @ContainerProperties({
     @ContainerProperties.Property(name = "DS", value = "new://Resource?type=DataSource"),
-    @ContainerProperties.Property(name = "DS.LogSql", value = "true"),
+    @ContainerProperties.Property(name = "DS.LogSql", value = "false"),
     @ContainerProperties.Property(name = "DS.JdbcDriver", value = "org.hsqldb.jdbcDriver"),
     @ContainerProperties.Property(name = "DS.JdbcUrl", value = "jdbc:hsqldb:mem:test2"),
-    @ContainerProperties.Property(name = "DS.jtaManaged", value = "true")
+    @ContainerProperties.Property(name = "DS.jtaManaged", value = "true"),
+    @ContainerProperties.Property(name = "openejb.log.factory", value = "slf4j")
 })
 @EnableServices(jaxrs = true)
 public class AuthService2Test {
@@ -64,11 +65,11 @@ public class AuthService2Test {
         WebTarget target = ClientBuilder.newClient().target("http://localhost:" + port + "/api/auth/simple");
         Entity<LoginModel> entity = Entity.entity(model, MediaType.APPLICATION_JSON);
         for (int i = 0; i < 20; i++) {
-        Response response = target.request(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON)
-                .post(entity, Response.class
-                );
-        Assert.assertThat(response.getStatus(), CoreMatchers.is(200));
+            Response response = target.request(MediaType.APPLICATION_JSON)
+                    .accept(MediaType.APPLICATION_JSON)
+                    .post(entity, Response.class
+                    );
+            Assert.assertThat(response.getStatus(), CoreMatchers.is(200));
         }
     }
 

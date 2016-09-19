@@ -52,8 +52,9 @@ public class AuthServiceTest {
         return new PropertiesBuilder()
                 .p("DS", "new://Resource?type=DataSource")
                 .p("DS.JdbcUrl", "jdbc:hsqldb:mem:test")
-                .p("DS.LogSql", "true")
+                .p("DS.LogSql", "false")
                 .p("DS.jtaManaged", "true")
+                .p("openejb.log.factory","slf4j")
                 .build();
     }
 
