@@ -7,7 +7,6 @@ package org.waastad.tomeejaxrsvalidation.service;
 
 import javax.ejb.Singleton;
 import javax.validation.Valid;
-import javax.validation.executable.ValidateOnExecution;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -22,7 +21,6 @@ import org.waastad.tomeejaxrsvalidation.model.LoginModel;
  * @author helge
  */
 @Path("auth")
-@Singleton
 public class AuthService {
 
     @POST
@@ -37,7 +35,7 @@ public class AuthService {
     @Path("extended")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response loginExtrended(@Valid ExtendedModel model) {
+    public Response loginExtended(@Valid ExtendedModel model) {
         return Response.ok().build();
     }
 }

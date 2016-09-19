@@ -5,7 +5,9 @@
  */
 package org.waastad.tomeejaxrsvalidation.model;
 
+import java.io.Serializable;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,11 +17,13 @@ import lombok.NoArgsConstructor;
  * @author helge
  */
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class BaseModel {
-    
+@NoArgsConstructor
+public class BaseModel implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     @NotNull(message = "username cannot be null")
     private String username;
-    
+
 }

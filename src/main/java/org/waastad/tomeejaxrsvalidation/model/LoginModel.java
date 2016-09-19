@@ -18,9 +18,8 @@ import lombok.NoArgsConstructor;
  * @author helge
  */
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-@XmlRootElement
+@NoArgsConstructor
 public class LoginModel implements Serializable {
 
     private static final long serialVersionUID = -2073027372154171465L;
@@ -29,4 +28,5 @@ public class LoginModel implements Serializable {
     @NotNull(message = "password cannot be null")
     @Size(min = 3, max = 6, message = "password must be between 3 and 6 chars")
     private String password;
+
 }

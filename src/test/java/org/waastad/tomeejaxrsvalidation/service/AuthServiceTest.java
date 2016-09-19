@@ -10,9 +10,6 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import org.apache.cxf.interceptor.LoggingInInterceptor;
-import org.apache.cxf.interceptor.LoggingOutInterceptor;
-import org.apache.cxf.jaxrs.client.WebClient;
 import org.apache.openejb.jee.WebApp;
 import org.apache.openejb.junit.ApplicationComposer;
 import org.apache.openejb.testing.Classes;
@@ -66,9 +63,9 @@ public class AuthServiceTest {
      * Test of loginExtrended method, of class AuthService.
      */
     @Test
-    public void testLoginExtrended() {
+    public void testLoginExtended() {
         System.out.println("loginExtrended");
-        ExtendedModel model = new ExtendedModel("sadfasdf", "waef","info");
+        ExtendedModel model = new ExtendedModel("ssd", "user","pass");
 
         WebTarget target = ClientBuilder.newClient().target("http://localhost:" + port + "/api/auth/extended");
         Entity<ExtendedModel> entity = Entity.entity(model, MediaType.APPLICATION_JSON);
