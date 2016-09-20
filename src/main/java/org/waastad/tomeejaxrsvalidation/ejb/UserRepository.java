@@ -5,7 +5,9 @@
  */
 package org.waastad.tomeejaxrsvalidation.ejb;
 
+import javax.annotation.Resource;
 import javax.ejb.Stateless;
+import javax.sql.DataSource;
 import org.waastad.tomeejaxrsvalidation.domain.User;
 
 /**
@@ -15,7 +17,14 @@ import org.waastad.tomeejaxrsvalidation.domain.User;
 @Stateless
 public class UserRepository {
 
+    @Resource(name = "DS")
+    private DataSource ds;
+
     public void findByName(String name) {
         User.find.byName(name);
+    }
+
+    public void save(User user) {
+        user.save();
     }
 }

@@ -38,9 +38,7 @@ public class EbeanInitBean {
         config.setDatabasePlatform(new HsqldbPlatform());
         config.setRegister(true);
         config.setDefaultServer(true);
-//        config.getAutoTuneConfig().setProfiling(true);
-//        config.getAutoTuneConfig().setQueryTuning(true);
-        //config.setCurrentUserProvider(new UserProvider());
+
         config.addPackage(User.class.getPackage().getName());
         EbeanServerFactory.create(config);
     }
