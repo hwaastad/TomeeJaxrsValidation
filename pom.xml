@@ -64,17 +64,17 @@
         <dependency>
             <groupId>org.avaje.ebean</groupId>
             <artifactId>ebean</artifactId>
-            <version>8.2.3</version>
+            <version>9.1.1</version>
         </dependency>
         <dependency>
             <groupId>org.avaje.ebean</groupId>
             <artifactId>ebean-querybean</artifactId>
-            <version>8.2.2</version>
+            <version>8.4.1</version>
         </dependency>
         <dependency>
             <groupId>org.avaje.ebean</groupId>
             <artifactId>querybean-generator</artifactId>
-            <version>8.1.2</version>
+            <version>8.1.4</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
