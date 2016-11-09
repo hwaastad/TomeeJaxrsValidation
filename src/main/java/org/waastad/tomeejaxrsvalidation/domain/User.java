@@ -7,7 +7,9 @@ package org.waastad.tomeejaxrsvalidation.domain;
 
 import org.waastad.tomeejaxrsvalidation.domain.finder.UserFinder;
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,10 +26,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class User extends BaseModel implements Serializable {
 
-  public static final UserFinder find = new UserFinder();
+    public static final UserFinder find = new UserFinder();
 
     private static final long serialVersionUID = -7447306316470330863L;
 
     private String name;
+
+    @OneToMany(targetEntity = Pet.class)
+    private List<Pet> pets;
 
 }

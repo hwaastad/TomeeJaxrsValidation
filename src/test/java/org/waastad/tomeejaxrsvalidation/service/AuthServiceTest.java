@@ -21,6 +21,7 @@ import org.apache.openejb.testing.RandomPort;
 import org.apache.openejb.testng.PropertiesBuilder;
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.waastad.tomeejaxrsvalidation.ejb.EbeanInitBean;
@@ -33,6 +34,7 @@ import org.waastad.tomeejaxrsvalidation.model.LoginModel;
  */
 @RunWith(ApplicationComposer.class)
 @EnableServices(jaxrs = true)
+//@Ignore
 public class AuthServiceTest {
 
     public AuthServiceTest() {
@@ -62,12 +64,13 @@ public class AuthServiceTest {
      * Test of login method, of class AuthService.
      */
     @Test
-    public void testLogin() {
+    public void testLogin() throws Exception {
         System.out.println("login");
         LoginModel model = new LoginModel("sadfasdf", "waef");
         WebTarget target = ClientBuilder.newClient().target("http://localhost:" + port + "/api/auth/simple");
         Entity<LoginModel> entity = Entity.entity(model, MediaType.APPLICATION_JSON);
         for (int i = 0; i < 20; i++) {
+            Thread.sleep(1000);
             Response response = target.request(MediaType.APPLICATION_JSON)
                     .accept(MediaType.APPLICATION_JSON)
                     .post(entity, Response.class);

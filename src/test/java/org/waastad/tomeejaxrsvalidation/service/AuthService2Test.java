@@ -19,6 +19,7 @@ import org.apache.openejb.testing.Module;
 import org.apache.openejb.testing.RandomPort;
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.waastad.tomeejaxrsvalidation.ejb.EbeanInitBean;
@@ -38,6 +39,7 @@ import org.waastad.tomeejaxrsvalidation.model.LoginModel;
     @ContainerProperties.Property(name = "openejb.log.factory", value = "slf4j")
 })
 @EnableServices(jaxrs = true)
+@Ignore
 public class AuthService2Test {
 
     public AuthService2Test() {

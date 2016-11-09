@@ -6,6 +6,8 @@
 package org.waastad.tomeejaxrsvalidation.ejb;
 
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import org.waastad.tomeejaxrsvalidation.domain.User;
 
 /**
@@ -15,7 +17,12 @@ import org.waastad.tomeejaxrsvalidation.domain.User;
 @Stateless
 public class UserRepository {
 
+    @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
     public void findByName(String name) {
         User.find.byName(name);
+    }
+
+    public void findByRaw() {
+        User.find.findByRaw();
     }
 }

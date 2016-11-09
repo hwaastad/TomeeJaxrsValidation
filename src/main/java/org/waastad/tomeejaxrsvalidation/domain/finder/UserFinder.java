@@ -37,4 +37,9 @@ public class UserFinder extends Finder<Long, User> {
     public User byName(String name) {
         return where().name.eq(name).findUnique();
     }
+
+    public User findByRaw() {
+        return where().name.eq("xxx")
+                .raw("pets.value = id").findUnique();
+    }
 }
