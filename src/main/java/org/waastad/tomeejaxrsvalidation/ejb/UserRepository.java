@@ -5,6 +5,8 @@
  */
 package org.waastad.tomeejaxrsvalidation.ejb;
 
+import com.avaje.ebean.Ebean;
+import com.avaje.ebean.EbeanServer;
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.sql.DataSource;

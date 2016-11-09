@@ -40,7 +40,7 @@ public class UserRepositoryTest {
                 .p("DS", "new://Resource?type=DataSource")
                 .p("DS.JdbcUrl", "jdbc:hsqldb:mem:test")
                 .p("DS.LogSql", "false")
-                .p("DS.jtaManaged", "true")
+                .p("DS.jtaManaged", "false")
                 .p("openejb.log.factory", "slf4j")
                 .build();
     }
@@ -52,9 +52,12 @@ public class UserRepositoryTest {
     public void testSomeMethod() {
         String name = UUID.randomUUID().toString();
         User user = new User(name);
-        userRepository.save(user);
+        //userRepository.save(user);
         for (int i = 0; i < 30; i++) {
-            userRepository.findByName(name);
+            User.db().beginTransaction();
+            User.find.byName(name);
+            User.db().commitTransaction();
+          //  userRepository.findByName(name);
         }
     }
 

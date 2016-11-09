@@ -33,8 +33,8 @@ public class EbeanInitBean {
         config.loadFromProperties();
         config.setDataSource(ds);
         config.setName("TestServer");
-        config.setUseJtaTransactionManager(true);
-        config.setAutoCommitMode(true);
+//        config.setUseJtaTransactionManager(true);
+//        config.setAutoCommitMode(true);
         config.setDatabasePlatform(new HsqldbPlatform());
         config.setRegister(true);
         config.setDefaultServer(true);
