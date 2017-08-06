@@ -5,9 +5,9 @@
  */
 package org.waastad.tomeejaxrsvalidation.ejb;
 
-import com.avaje.ebean.EbeanServerFactory;
-import com.avaje.ebean.config.ServerConfig;
-import com.avaje.ebean.config.dbplatform.HsqldbPlatform;
+import io.ebean.EbeanServerFactory;
+import io.ebean.config.ServerConfig;
+import io.ebean.config.dbplatform.hsqldb.HsqldbPlatform;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
@@ -33,8 +33,8 @@ public class EbeanInitBean {
         config.loadFromProperties();
         config.setDataSource(ds);
         config.setName("TestServer");
-//        config.setUseJtaTransactionManager(true);
-//        config.setAutoCommitMode(true);
+        config.setUseJtaTransactionManager(true);
+        config.setAutoCommitMode(true);
         config.setDatabasePlatform(new HsqldbPlatform());
         config.setRegister(true);
         config.setDefaultServer(true);

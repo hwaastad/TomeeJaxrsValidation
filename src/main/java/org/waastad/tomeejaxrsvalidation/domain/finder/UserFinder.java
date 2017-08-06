@@ -1,6 +1,6 @@
 package org.waastad.tomeejaxrsvalidation.domain.finder;
 
-import com.avaje.ebean.Finder;
+import io.ebean.Finder;
 import org.waastad.tomeejaxrsvalidation.domain.User;
 import org.waastad.tomeejaxrsvalidation.domain.query.QUser;
 

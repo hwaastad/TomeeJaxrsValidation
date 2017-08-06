@@ -5,10 +5,11 @@
  */
 package org.waastad.tomeejaxrsvalidation.ejb;
 
-import com.avaje.ebean.Ebean;
-import com.avaje.ebean.EbeanServer;
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
 import javax.sql.DataSource;
 import org.waastad.tomeejaxrsvalidation.domain.User;
 
@@ -17,6 +18,7 @@ import org.waastad.tomeejaxrsvalidation.domain.User;
  * @author helge
  */
 @Stateless
+@TransactionManagement(TransactionManagementType.CONTAINER)
 public class UserRepository {
 
     @Resource(name = "DS")
