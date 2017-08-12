@@ -83,7 +83,7 @@
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
-            <plugin>
+            <!--   <plugin>
                 <groupId>io.ebean</groupId>
                 <artifactId>ebean-maven-plugin</artifactId>
                 <version>10.4.1</version>
@@ -121,6 +121,33 @@
                 <groupId>org.avaje.ebean</groupId>
                 <artifactId>codegen-maven-plugin</artifactId>
                 <version>1.3</version>
+            </plugin>-->
+            <plugin>
+                <groupId>io.ebean</groupId>
+                <artifactId>ebean-maven-plugin</artifactId>
+                <version>10.4.1</version>
+                <executions>
+                    <execution>
+                        <id>io.ebean.tile:enhancement:2.9::main</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>enhance</goal>
+                        </goals>
+                        <configuration>
+                            <transformArgs>debug=0</transformArgs>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>io.ebean.tile:enhancement:2.9::test</id>
+                        <phase>process-test-classes</phase>
+                        <goals>
+                            <goal>testEnhance</goal>
+                        </goals>
+                        <configuration>
+                            <transformArgs>debug=0</transformArgs>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
